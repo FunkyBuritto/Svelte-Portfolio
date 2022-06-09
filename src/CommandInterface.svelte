@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import { Help, Ikvr } from './commands';
+    import { Help, Ikvr, Milan } from './commands';
 
     let validCommand;
     let line = "";
@@ -11,7 +11,14 @@
         {   command: "help",
             execute: function(){
                 const opt = document.createElement("span");
-                opt.innerHTML = Help;
+                opt.innerHTML = formatElements(Help);
+                elements.push(opt);
+                output.appendChild(opt);
+            } },
+        {   command: "milan",
+            execute: function(){
+                const opt = document.createElement("span");
+                opt.innerHTML = formatElements(Milan);
                 elements.push(opt);
                 output.appendChild(opt);
             } },
@@ -32,8 +39,6 @@
 
     onMount(async () => {
         output = document.getElementById("output");
-        elements.push(document.getElementById("IKVR"));
-        elements.forEach(element => {element.remove();});
 		setMyKeyDownListener();
 	});
 
@@ -90,41 +95,21 @@
 </script>
 
 <main>
-    <div id="IKVR">
-        <pre class="typeLine">
-&&&&&##################################BBGGB########&&&&&&&&
-###G5PPPJY55P5GPPP5JYPPPBBBBBBBBBBBBBG5J????YPGB########&&&&
-##B?JJ!!~^~~~YG5P5Y!?7?JGBBBBBBBBG5J77?YPGGPY?7?YPB########&
-###BPGPPPPPPGBBGBGGPGGGGGBBBGG5J7!7J5GGGGGGGBBGPJ?7J5GB#####
-@&##BBBBBBBBB##BBBBBBBBBBBGGP!~?YPGGGGGGPPPPGGGGGGP5J7?BB###
-@&#G7!??7?!5G##BBBBBBBBBBGGG5:JPGP5Y5PGGGGPGGGP7~!5GG5^GB###
-@&#BYYYJJ5YPG##BBBBBBGGGGGGP5:?PPPYYYPGGGPPGGG5!^^YGG5^PBB##
-&&#######B##B##BBBBBBBBBGGGP5:?PGGGGGGGP?^:!5GGGPGGGG5^PBB##
-@@&BBBBBBBGBBGGGGGGGGG&#GGGP5:?PGGGGGGGP?:.~5GGGGGGGG5^PBB##
-&&#5YY7?77~!77~7777~!P##GGGP5:?PGGBBBGGGPPPPGGPY?JPGG5^PBB##
-@@#G5YJYJJJ?J5JJ?JY?YG##GGGG5:JPGGBBBGGGP55PGGPJ?JPGG5^GB###
-&&&#########BBBBBBBBBB#BBBGGP~!?5PGGGGGGJ!!7PGGGGGG5J77BB###
-@@##BBBBBBBB&BBBBBBBBBBBBBBGGG5?7!?YPGGGPYJ5GGGPY?7?YPB#####
-@@#BY??Y77GB&#BBBBBBBBBBBBBBBBBBGPY?77J5PGGG5J??J5GB#######&
-@@&#BPPPPPB#&#######BBBBBBBBBBBBBBBBGPY?7???J5GB########&&&&
-&&&&&&&&&&##&##########################BBPPB########&&&&&&&&</pre>
-</div>
-
 <div id="interface"> 
     <div id="output" class="unselectable typeLine"></div>
-    <span class="unselectable typeLine" style="color: {validCommand ? "#DAE3E4" : "#999"}; display: block;">{line + "█"}</span>
+    <span class="unselectable typeLine" style="color: {validCommand ? "#f9f9f9" : "#999"}; display: block;">{line + "█"}</span>
 </div>
 
 </main>
 
 <style global>
     .unselectable {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
 	main {
@@ -145,9 +130,8 @@
 
         background-color: rgba(0, 0, 0, 0);
         text-align: left;
-        color: #999;
-        color: #DAE3E4;
-		font-family: 'Courier New', Courier, monospace;
+        color: #f9f9f9;
+		font-family: Cascadia;
 		font-size: 1.22vw;
 		font-weight: 100;
     }
@@ -172,6 +156,29 @@
     }
 
     #output :global(.picture):hover::after{
+        opacity: 1;
+    }
+
+    #output :global(.face) {
+        position: relative;
+    }
+
+    #output :global(.face)::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 101%;
+        height: 1800%;
+        color: transparent;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-image: url("../media/Bruh.jpg");
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+
+    #output :global(.face):hover::after{
         opacity: 1;
     }
 

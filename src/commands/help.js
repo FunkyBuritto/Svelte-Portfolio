@@ -1,10 +1,10 @@
 export const Help = 
 `
- Information
-    This portfolio webpage can be navigated using commands.
- Commands
+<b style="color: #ffff72">Commands:</b>
+    OPEN WELCOME                
+    OPEN MILAN              Opens the About and basic information item.
     OPEN IKVR               Opens the Inverse Kinematics VR portfolio item.
     CLEAR                   Removes all the current text from the webpage.
-    
+    <br>
 `
-.trim().replaceAll(' ', '&nbsp;').replaceAll('\n', '<br>');
+.trim().replaceAll('\n', '<br>');
