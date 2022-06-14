@@ -1,16 +1,16 @@
 export const Milan = 
 `
 <span style="color: #ffffff"></span>
-┌ Milan Bonten ─────────────────────────────────────────────────────────────────┐
+┌ <b style="color: #fe8aff">Milan Bonten</b> ─────────────────────────────────────────────────────────────────┐
 │                                                                               │
-│  <span class="face">PPPPPBBBBGBBGGBBBBBGGBBBBBBBBBBBBBB</span>  <b style="color: #ff7272">TERMINAL PORTFOLIO:</b>                     │
+│  <span class="face">PPPPPBBBBGBBGGBBBBBGGBBBBBBBBBBBBBB</span>  <b style="color: #b38bf5">TERMINAL PORTFOLIO:</b>                     │
 │  PPPPGBBGGGGGGBB########BBBGBGBBBBBB      This portfolio uses a TUI to view   │
 │  55PPGGBPPPGGBBGGGBBBBBBB#BGPPPPPGGG      the content, type HELP for more     │  
 │  PPPPGPGPPPP55YYJJYY55555PB#GPPPPPPP      information. My portfolio is made   │
 │  Y5YPP5P5YYJ?77777??JJJYYY5B#G5YYYY5      this way because I think its more   │
 │  JJ?5PP5?7777??77???JY555555B#GYJYYY      interesting and proactive.          │
 │  GPGGPGY!!7?JY5Y?7?J5PPPP555G#GJ5555                                          │
-│  PPPGBB5~7?JGG55?!7YPGPGBPP55BG?JYY5  <b style="color: #ffff72;">PROGRAMMING SKILLS:</b>                     │
+│  PPPGBB5~7?JGG55?!7YPGPGBPP55BG?JYY5  <b style="color: #688cec;">PROGRAMMING SKILLS:</b>                     │
 │  PPPGYJ?~!7?JJJ?!!?Y5PP5555YYPPYJJJY       Unity            [<span style="color: #1a8ce2">#########-</span>]      │
 │  PPPP7!!~~!!!!!!~!7JYYYJJJJJJ5555YYY       C#               [<span style="color: #08a6e2">########--</span>]      │
 │  BGGG?7!~~~!!777JJJ5PYYJJJJJJ5P5YYYY       UnrealEngine     [<span style="color: #11c0df">###-------</span>]      │
@@ -23,7 +23,7 @@ export const Milan =
 │  55PY7!?5PJ~!!!!77?JYYYYYGG555PP5555       Java             [<span style="color: #a6f39a">###-------</span>]      │
 │                                            Rust             [<span style="color: #bbec8e">##--------</span>]      │
 │                                                                               │
-│  <b style="color: #e572ff">ABOUT:</b>                                                                       │
+│  <b style="color: #1a8ce2">ABOUT:</b>                                                                       │
 │      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eros  │
 │      urna, laoreet sit amet lobortis id, varius eu nisi. Vestibulum vehicula  │
 │      ex a arcu dictum feugiat. Phasellus risus metus, elementum id volutpat   │

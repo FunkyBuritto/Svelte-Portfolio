@@ -4,6 +4,7 @@
 
     let validCommand;
     let line = "";
+    let bottomLine;
     let output;
     const elements = [];
 
@@ -39,6 +40,7 @@
 
     onMount(async () => {
         output = document.getElementById("output");
+        bottomLine = document.getElementById("bottomline");
 		setMyKeyDownListener();
 	});
 
@@ -80,6 +82,8 @@
 
                 // Update in window and reset line
                 line = "";
+
+                bottomLine.scrollIntoView({behavior: "smooth"});
             }
 
             // Check if the current line is a valid command
@@ -98,6 +102,8 @@
 <div id="interface"> 
     <div id="output" class="unselectable typeLine"></div>
     <span class="unselectable typeLine" style="color: {validCommand ? "#f9f9f9" : "#999"}; display: block;">{line + "█"}</span>
+
+    <span class="unselectable typeLine" id="bottomline"> </span>
 </div>
 
 </main>
