@@ -1,18 +1,21 @@
 <script>
     import { onMount } from 'svelte';
-    import { Help, Ikvr, Milan } from './commands';
+    import { Help, Ikvr, Milan, Welcome, List } from './commands';
+
+    let isMobile;
 
     let validCommand;
+    let firstLine = {bool: true, active: true, content: "Type WELCOME or any other valid command to start"};
     let line = "";
     let bottomLine;
     let output;
     const elements = [];
 
     let commands = [
-        {   command: "help",
+        {   command: "welcome",
             execute: function(){
                 const opt = document.createElement("span");
-                opt.innerHTML = formatElements(Help);
+                opt.innerHTML = formatElements(Welcome);
                 elements.push(opt);
                 output.appendChild(opt);
             } },
@@ -23,10 +26,24 @@
                 elements.push(opt);
                 output.appendChild(opt);
             } },
-        {   command: "open ikvr",
+        {   command: "list",
+            execute: function(){
+                const opt = document.createElement("span");
+                opt.innerHTML = formatElements(List);
+                elements.push(opt);
+                output.appendChild(opt);
+            } },
+        {   command: "ikvr",
             execute: function(){
                 const opt = document.createElement("span");
                 opt.innerHTML = formatElements(Ikvr);
+                elements.push(opt);
+                output.appendChild(opt);
+            } },
+        {   command: "help",
+            execute: function(){
+                const opt = document.createElement("span");
+                opt.innerHTML = formatElements(Help);
                 elements.push(opt);
                 output.appendChild(opt);
             } },
@@ -41,13 +58,16 @@
     onMount(async () => {
         output = document.getElementById("output");
         bottomLine = document.getElementById("bottomline");
+        line = firstLine.content;
+
+        isMobile = navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/);
+        console.log(isMobile);
 		setMyKeyDownListener();
 	});
 
     function formatElements(originalString){
         const regEx = new RegExp("( )(?!([^<]+)?>)", "gi");
         return originalString.replace(regEx, "&nbsp;");
-        //return originalString;
     }
 
     function setMyKeyDownListener() {
@@ -57,12 +77,21 @@
             
             if (event.keyCode < 91 && event.keyCode > 47) { // Normal Keys and Uppercase variants
                 let char = String.fromCharCode(event.keyCode);
+                if(firstLine.bool && firstLine.active){
+                    firstLine.active = false;
+                    line = ""; }
                 if(!event.shiftKey){ char = char.toLowerCase() }
                 line += char;
             } else if(event.keyCode == 32){ // Space Key
+                if(firstLine.bool && firstLine.active){
+                    firstLine.active = false;
+                    line = ""; }
                 line += " ";
             } else if(event.keyCode == 8){ // Backspace key
                 if(line.length > 0){ line = line.slice(0, -1) }
+                if(line.length == 0 && firstLine.bool){
+                    line = firstLine.content;
+                    firstLine.active = true; }
             } else if(event.keyCode == 13){ // Enter Key
                 const opt = document.createElement("span");
                     opt.innerHTML= line + '<br>';
@@ -80,9 +109,12 @@
                         output.appendChild(opt);
                 }
 
+                if(firstLine.bool)
+                    firstLine.bool = false;
+
                 // Update in window and reset line
                 line = "";
-
+                
                 bottomLine.scrollIntoView({behavior: "smooth"});
             }
 
@@ -101,9 +133,10 @@
 <main>
 <div id="interface"> 
     <div id="output" class="unselectable typeLine"></div>
-    <span class="unselectable typeLine" style="color: {validCommand ? "#f9f9f9" : "#999"}; display: block;">{line + "█"}</span>
+    <span class="unselectable typeLine" style="color: {validCommand ? "#f9f9f9" : "#999"}; display: block;">{line + (firstLine.active ? "" : "█")}</span>
 
     <span class="unselectable typeLine" id="bottomline"> </span>
+    <input type="text" style="display: none;"><input>
 </div>
 
 </main>
