@@ -136,7 +136,6 @@
     <span class="unselectable typeLine" style="color: {validCommand ? "#f9f9f9" : "#999"}; display: block;">{line + (firstLine.active ? "" : "█")}</span>
 
     <span class="unselectable typeLine" id="bottomline"> </span>
-    <input type="text" style="display: none;"><input>
 </div>
 
 </main>
