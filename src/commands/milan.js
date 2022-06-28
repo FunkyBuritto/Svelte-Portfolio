@@ -28,9 +28,8 @@ export const Milan =
       my skills since I was 14 years old and I have the most experience with   
       Unity game engine. Because I have so much experience with Unity my c#    
       skills are also verry good. In the recent years I started expanding the  
-      langueges I know and I also started focusing more on software             
-      development.                                                             
-                                                                               
+      langueges I know and I started focusing more on software development.                                                                           
+                                                                              
 ───────────────────────────────────────────────────────────────────────────────<br>
 `
 .trim().replaceAll('\n', '<br>');

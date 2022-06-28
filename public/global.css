@@ -6,6 +6,7 @@ html, body {
 }
 
 body {
+	z-index: -2;
 	color: #333;
 	margin: 0;
 	padding: 8px;
