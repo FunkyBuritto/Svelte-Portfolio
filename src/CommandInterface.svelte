@@ -1,7 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import { debug } from 'svelte/internal';
-    import { Help, Milan, Welcome, WelcomeMobile, Items } from './commands';
+    import { Help, Milan, Welcome, WelcomeMobile, Items, Contact } from './commands';
 
     let isMobile;
 
@@ -37,6 +36,13 @@
                 elements.push(opt);
                 output.appendChild(opt);
             } },
+        {   command: "contact",
+            execute: function(){
+                const opt = document.createElement("span");
+                opt.innerHTML = formatElements(Contact);
+                elements.push(opt);
+                output.appendChild(opt);
+            } },
         {   command: "help",
             execute: function(){
                 const opt = document.createElement("span");
@@ -67,6 +73,12 @@
             prevmline = firstLine.content;
             mline = firstLine.content;
             firstLine.active = true;
+
+            let lns = document.getElementsByClassName('typeLine');
+            for(let i = 0; i < lns.length; i++) {
+                lns[i].style.fontSize = "1.5vh";
+            }
+
             setInterval(function () { moblieInput() }, 50);
         }
 	});
@@ -172,7 +184,7 @@
                     cmd.execute();
                 } else{
                     const opt = document.createElement("span");
-                        opt.innerHTML= '?Error -> ' + line + ' is not a valid command<br>';
+                        opt.innerHTML= '?Error -> ' + line + ' is not a valid command, try typing HELP to get a list of commands<br>';
                         elements.push(opt);
                         output.appendChild(opt);
                 }
@@ -258,7 +270,7 @@
         text-align: left;
         color: #f9f9f9;
 		font-family: Cascadia;
-		font-size: 1.22vw;
+		font-size: 1.05vw;
 		font-weight: 100;
     }
 
@@ -300,11 +312,11 @@
         top: 0;
         left: 0;
         width: 101%;
-        height: 1800%;
+        height: 2100%;
         color: transparent;
         background-size: 100%;
         background-repeat: no-repeat;
-        background-image: url("../media/Bruh.jpg");
+        background-image: url("../media/Milan.jpeg");
         opacity: 0;
         transition: opacity 0.2s;
     }

@@ -3,7 +3,7 @@ export const Help =
 ─ <b style="color: #fe8aff">Commands</b> ──────────────────────────────────────────────────────────────────────────
 
     WELCOME                 Shows the Welcome and How-to text.
-    MILAN                   Opens a About and basic information item.
+    MILAN                   Opens a About and Programming skills item.
     ITEMS                   Gives a list of all the portfolio projects.
     CONTACT                 Shows my contact information.
 
