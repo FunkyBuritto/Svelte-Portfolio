@@ -1,6 +1,6 @@
 export const Items = 
 `
-─ <b style="color: #fe8aff">Projects </b> ───────────────────────────────────────────────────────────
+─ <b style="color: #fe8aff">Projects </b> ───────────────────────────────────────────────────────────────────────
   
   <b style="color: #b38bf5">CODE & BUILD:</b>
    Ikvr                 <a href="https://github.com/FunkyBuritto/IKVR-Dragon" target="_blank"><u class="typeline">https://github.com/FunkyBuritto/IKVR-Dragon</u></a>
@@ -14,7 +14,7 @@ export const Items =
   <b style="color: #1a8ce2">NDA:</b>
    Eurocontrol Cadsim   Non-disclosure agreement, contact me for more information
 
-───────────────────────────────────────────────────────────────────────
+───────────────────────────────────────────────────────────────────────────────────
 <br>
 `
 .trim().replaceAll('\n', '<br>');

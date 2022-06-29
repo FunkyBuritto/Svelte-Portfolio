@@ -1,14 +1,15 @@
 export const Milan = 
 `
 <span style="color: #ffffff"></span>
-─ <b style="color: #fe8aff">Milan Bonten</b> ────────────────────────────────────────────────────────────
+─ <b style="color: #fe8aff">Milan Bonten</b> ──────────────────────────────────────────────────────────────
 
   <b style="color: #8e8cf1">ABOUT:</b>                                                                       
     Hi, I'm a 18 year old game/software developer. I have been sharpening    
     my skills since I was 14 years old and I have the most experience with   
-    Unity game engine. Because I have so much experience with Unity my c#    
-    skills are also very good. In the recent years I started expanding the  
-    langueges I know and I started focusing more on software development.     
+    the Unity game engine. Because I have so much experience with Unity my 
+    c# skills are also very good. In the recent years I started expanding 
+    the programming languages I know and I started focusing more on software 
+    development.     
 
     <span class="face">J?7?J?7!~!!~~?7!!!7~~77~!~!777??</span>                
     ?YPJ!!!!~~!~!5GP5J!^!7!^^~~!~~!!     
@@ -32,7 +33,7 @@ export const Milan =
     PPPBPYYYJJ?7777?JYYYYYYJJYJ!~~!!
     GGGGGPG###BBGPPPPPPGGP5J?Y5Y777?
                                                                                                                                                                                             
-──────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────────────────────
   <br>
 `
 .trim().replaceAll('\n', '<br>');
